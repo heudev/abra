@@ -79,12 +79,6 @@ export default function Home() {
 
       {/* Progress Section */}
       <section className="py-20 relative">
-        <Image
-          src="/images/under-water.jpg"
-          alt="İlerleme arka plan"
-          fill
-          className="object-cover opacity-10"
-        />
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-4xl font-bold text-center mb-16">Proje Aşamaları</h2>
           <div className="max-w-3xl mx-auto">

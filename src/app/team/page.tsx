@@ -77,8 +77,9 @@ export default function Team() {
     };
 
     return (
-        <main className="pt-16 min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-            <section className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white py-20 shadow-xl">
+        <main className="pt-16 min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 relative">
+            <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-[0.50] pointer-events-none"></div>
+            <section className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white py-20 shadow-xl relative z-10">
                 <div className="container mx-auto px-4">
                     <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 tracking-tight">
                         Takım Yönetimi
@@ -86,7 +87,7 @@ export default function Team() {
                 </div>
             </section>
 
-            <section className="py-20">
+            <section className="py-20 relative z-10">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col items-center space-y-12">
                         {/* Danışman */}

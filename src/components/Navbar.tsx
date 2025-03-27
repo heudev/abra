@@ -2,93 +2,88 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 const Navbar = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
     return (
-        <nav className="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+        <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-sm">
             <div className="container mx-auto px-4">
-                <div className="flex items-center justify-between h-16">
-                    <Link href="/" className="text-2xl font-bold text-blue-900">
-                        ABRA
+                <div className="flex items-center justify-between h-20">
+                    <Link href="/" className="flex items-center group">
+                        <div className="relative w-16 h-16 overflow-hidden rounded-xl transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-lg">
+                            <Image
+                                src="/images/abra-logo.jpg"
+                                alt="ABRA Logo"
+                                fill
+                                priority
+                                sizes="(max-width: 768px) 40px, 64px"
+                                className="object-cover transition-transform duration-500 group-hover:rotate-3"
+                            />
+                        </div>
+                        <div className="ml-3 flex flex-col">
+                            <span className="text-2xl font-bold bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 bg-clip-text text-transparent transform transition-all duration-500 group-hover:scale-105">
+                                ABRA
+                            </span>
+                            <span className="text-xs text-gray-500 font-medium tracking-wider transform transition-all duration-500 group-hover:text-blue-600">
+                                TEAM
+                            </span>
+                        </div>
                     </Link>
+
                     <div className="hidden md:flex space-x-8">
-                        <Link href="/" className="text-gray-700 hover:text-blue-900 transition-colors">
-                            Ana Sayfa
-                        </Link>
-                        <Link href="/about" className="text-gray-700 hover:text-blue-900 transition-colors">
-                            Hakkımızda
-                        </Link>
-                        <Link href="/team" className="text-gray-700 hover:text-blue-900 transition-colors">
-                            Ekip
-                        </Link>
-                        <Link href="/progress" className="text-gray-700 hover:text-blue-900 transition-colors">
-                            İlerleme
-                        </Link>
+                        {[
+                            { href: "/", text: "Ana Sayfa" },
+                            { href: "/about", text: "Hakkımızda" },
+                            { href: "/team", text: "Ekip" },
+                            { href: "/progress", text: "İlerleme" }
+                        ].map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className="relative text-gray-700 hover:text-blue-900 transition-colors duration-300 group py-2"
+                            >
+                                {link.text}
+                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+                            </Link>
+                        ))}
                     </div>
+
                     <button
-                        className="md:hidden"
+                        className="md:hidden relative w-10 h-10 focus:outline-none group"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         aria-label="Menü"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            {isMenuOpen ? (
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M6 18L18 6M6 6l12 12"
-                                />
-                            ) : (
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M4 6h16M4 12h16M4 18h16"
-                                />
-                            )}
-                        </svg>
+                        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <span className={`block w-6 h-0.5 bg-gray-600 transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-1.5" : "-translate-y-1"
+                                }`}></span>
+                            <span className={`block w-6 h-0.5 bg-gray-600 mt-1.5 transition-all duration-300 ${isMenuOpen ? "opacity-0" : "opacity-100"
+                                }`}></span>
+                            <span className={`block w-6 h-0.5 bg-gray-600 mt-1.5 transition-all duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-1.5" : "translate-y-1"
+                                }`}></span>
+                        </div>
                     </button>
                 </div>
 
-                {/* Mobil Menü */}
-                <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-                    <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
-                        <Link
-                            href="/"
-                            className="block px-3 py-2 text-gray-700 hover:text-blue-900 hover:bg-gray-50 rounded-md transition-colors"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Ana Sayfa
-                        </Link>
-                        <Link
-                            href="/about"
-                            className="block px-3 py-2 text-gray-700 hover:text-blue-900 hover:bg-gray-50 rounded-md transition-colors"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Hakkımızda
-                        </Link>
-                        <Link
-                            href="/team"
-                            className="block px-3 py-2 text-gray-700 hover:text-blue-900 hover:bg-gray-50 rounded-md transition-colors"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Ekip
-                        </Link>
-                        <Link
-                            href="/progress"
-                            className="block px-3 py-2 text-gray-700 hover:text-blue-900 hover:bg-gray-50 rounded-md transition-colors"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            İlerleme
-                        </Link>
+                <div className={`md:hidden transition-all duration-300 ease-in-out transform ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 pointer-events-none"
+                    }`}>
+                    <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-sm shadow-lg rounded-lg mt-2">
+                        {[
+                            { href: "/", text: "Ana Sayfa" },
+                            { href: "/about", text: "Hakkımızda" },
+                            { href: "/team", text: "Ekip" },
+                            { href: "/progress", text: "İlerleme" }
+                        ].map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className="block px-4 py-3 text-gray-700 hover:text-blue-900 hover:bg-blue-50 rounded-md transition-all duration-300"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                {link.text}
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </div>

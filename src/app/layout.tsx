@@ -50,7 +50,7 @@ export default function RootLayout({
               </div>
             </div>
             <div className="mt-8 pt-8 border-t border-blue-800 text-center text-gray-300">
-              <p>&copy; 2024 ABRA. Tüm hakları saklıdır.</p>
+              <p>&copy; {new Date().getFullYear()} ABRA. Tüm hakları saklıdır.</p>
             </div>
           </div>
         </footer>

@@ -9,6 +9,22 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ABRA - İnsansız Su Altı Sistemleri",
   description: "ABRA takımı, insansız su altı sistemleri geliştiren yenilikçi bir ekiptir.",
+  icons: {
+    icon: [
+      {
+        url: '/images/abra-logo.jpg',
+        type: 'image/jpeg',
+      }
+    ],
+    shortcut: ['/images/abra-logo.jpg'],
+    apple: [
+      {
+        url: '/images/abra-logo.jpg',
+        sizes: '180x180',
+        type: 'image/jpeg',
+      }
+    ],
+  }
 };
 
 export default function RootLayout({

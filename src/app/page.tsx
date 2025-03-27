@@ -28,14 +28,8 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 relative">
-        <Image
-          src="/images/features-bg.jpg"
-          alt="Özellikler arka plan"
-          fill
-          className="object-cover opacity-10"
-        />
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">Neler Yapıyoruz?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-6 bg-white/80 backdrop-blur-sm rounded-lg shadow-lg">
@@ -67,7 +61,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Team members will be added here */}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center">
             <Link
               href="/team"
               className="inline-block bg-blue-900 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-800 transition-all"

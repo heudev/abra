@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Progress() {
     const milestones = [
         {
@@ -35,10 +37,20 @@ export default function Progress() {
     return (
         <main className="pt-16">
             {/* Hero Section */}
-            <section className="bg-blue-900 text-white py-20">
-                <div className="container mx-auto px-4">
-                    <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">Proje İlerlemesi</h1>
-                    <p className="text-xl text-center max-w-3xl mx-auto">
+            <section className="relative h-[300px] flex items-center">
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/images/under-water.jpg"
+                        alt="Progress Hero Background"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-blue-900/70" />
+                </div>
+                <div className="container mx-auto px-4 relative z-10">
+                    <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 text-white">Proje İlerlemesi</h1>
+                    <p className="text-xl text-center max-w-3xl mx-auto text-gray-200">
                         ABRA&apos;nın gelişim sürecini ve başarılarını takip edin.
                     </p>
                 </div>

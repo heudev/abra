@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Team() {
     const teamStructure = {
         advisor: {
@@ -79,9 +81,19 @@ export default function Team() {
     return (
         <main className="pt-16 min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 relative">
             <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-[0.50] pointer-events-none"></div>
-            <section className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white py-20 shadow-xl relative z-10">
-                <div className="container mx-auto px-4">
-                    <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 tracking-tight">
+            <section className="relative h-[300px] flex items-center">
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/images/under-water.jpg"
+                        alt="Team Hero Background"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-blue-900/70" />
+                </div>
+                <div className="container mx-auto px-4 relative z-10">
+                    <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 tracking-tight text-white">
                         Takım Yönetimi
                     </h1>
                 </div>

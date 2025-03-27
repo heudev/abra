@@ -66,9 +66,11 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                <div className={`md:hidden transition-all duration-300 ease-in-out transform ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 pointer-events-none"
+                <div className={`md:hidden fixed left-0 right-0 transition-all duration-300 ease-in-out transform ${isMenuOpen
+                    ? "opacity-100 translate-y-0 visible"
+                    : "opacity-0 -translate-y-10 invisible"
                     }`}>
-                    <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-sm shadow-lg rounded-lg mt-2">
+                    <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-sm shadow-lg rounded-lg mt-2 mx-4">
                         {[
                             { href: "/", text: "Ana Sayfa" },
                             { href: "/about", text: "Hakkımızda" },

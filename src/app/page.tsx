@@ -16,6 +16,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50 z-10" />
         <div className="container mx-auto px-4 z-20 text-center text-white">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">ABRA</h1>
+          <p className="text-xl md:text-2xl">İzmir Ekonomi Üniversitesi</p>
           <p className="text-xl md:text-2xl mb-8">İnsansız Su Altı Sistemleri Takımı</p>
           <Link
             href="/about"
